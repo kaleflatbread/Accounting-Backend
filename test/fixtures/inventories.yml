@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sku: MyString
+  quantity_change: 1
+  date: 2018-08-07
+  transaction_id: 1
+
+two:
+  sku: MyString
+  quantity_change: 1
+  date: 2018-08-07
+  transaction_id: 1
