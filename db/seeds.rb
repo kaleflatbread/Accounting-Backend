@@ -1,14 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
-
-
 
 income_statement = Account.create({name: "Income Statement", number: "0001"})
 balance_sheet = Account.create({name: "Balance Sheet", number: "0002"})
@@ -24,14 +13,15 @@ vicki = User.create({email: "test2@gmail.com", first_name: "Vicki", last_name: "
 madison = User.create({email: "test3@gmail.com", first_name: "Madison", last_name: "O'Connor", role: "Accounting Manager"})
 jing = User.create({email: "test4@gmail.com", first_name: "Jing", last_name: "Bian", role: "Senior Accountant"})
 
-one = Transaction.create({account_id: revenue.id, type: Expense, transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", je_num: "MO0718", date: "7/31/2018", amount: 500})
-two = Transaction.create({account_id: cash.id, type: Expense, transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", je_num: "MO0718", date: "7/31/2018", amount: -500})
 
-three = Transaction.create({account_id: finished_goods.id, type: Inventory, transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", je_num: "KF0718", date: "7/31/2018", quantity_change: -20, amount: -20, cost_per_unit: 1, sku: "ABCD"})
-four = Transaction.create({account_id: cogs.id, type: Expense, transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", je_num: "KF0718", date: "7/31/2018", amount: -three.amount})
+one = Transaction.create({account_id: revenue.id, type: "Expense", transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", je_num: "MO0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 500})
+two = Transaction.create({account_id: cash.id, type: "Expense", transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", je_num: "MO0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -500})
 
-five = Transaction.create({account_id: finished_goods.id, type: Inventory, transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", je_num: "JB0718", date: "7/31/2018", quantity_change: 30, amount: 60, cost_per_unit: 2, sku: "EFGH"})
-six = Transaction.create({account_id: cash.id, type: Expense, transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", je_num: "JB0718", date: "7/31/2018", amount: -five.amount})
+three = Transaction.create({account_id: finished_goods.id, type: "Inventory", transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", je_num: "KF0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: -20, amount: -20, cost_per_unit: 1, sku: "ABCD"})
+four = Transaction.create({account_id: cogs.id, type: "Expense", transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", je_num: "KF0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -three.amount})
 
-seven = Transaction.create({account_id: g_and_a.id, type: Expense, transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", je_num: "VZ0718", date: "7/31/2018", amount: 100})
-eight = Transaction.create({account_id: cash.id, type: Expense, transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", je_num: "VZ0718", date: "7/31/2018", amount: -100})
+five = Transaction.create({account_id: finished_goods.id, type: "Inventory", transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", je_num: "JB0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: 30, amount: 60, cost_per_unit: 2, sku: "EFGH"})
+six = Transaction.create({account_id: cash.id, type: "Expense", transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", je_num: "JB0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -five.amount})
+
+seven = Transaction.create({account_id: g_and_a.id, type: "Expense", transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", je_num: "VZ0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 100})
+eight = Transaction.create({account_id: cash.id, type: "Expense", transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", je_num: "VZ0718", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -100})
