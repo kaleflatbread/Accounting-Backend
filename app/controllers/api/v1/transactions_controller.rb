@@ -1,5 +1,7 @@
 class Api::V1::TransactionsController < ApplicationController
 
+
+
   def index
     transactions = Transaction.all
     render json: transactions
@@ -13,14 +15,7 @@ class Api::V1::TransactionsController < ApplicationController
   private
 
     def transaction_params
-      params.require(:transaction).permit(:account_id, :user_id, :memo, :je_num, :date)
+      params.require(:transaction).permit(:account_id, :type, :transaction_type, :user_id, :memo, :je_num, :date, :quantity_change, :amount, :cost_per_unit, :sku)
     end
 
 end
-:amount
-t.integer :account_id
-t.integer :user_id
-t.string :memo
-t.integer :je_num
-t.string :vendor
-t.date :date

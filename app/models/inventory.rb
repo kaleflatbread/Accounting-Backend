@@ -1,2 +1,3 @@
-class Inventory < ApplicationRecord
+class Inventory < Transaction
+  
 end
