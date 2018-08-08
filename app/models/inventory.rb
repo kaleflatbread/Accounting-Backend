@@ -1,2 +1,3 @@
 class Inventory < Transaction
+
 end
