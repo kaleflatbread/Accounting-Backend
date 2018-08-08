@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(version: 2018_08_07_150504) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "type", null: false
-    t.string "transaction_type", default: "hi"
+    t.string "transaction_type"
     t.bigint "account_id"
     t.bigint "user_id"
-    t.integer "je_num", default: 1
+    t.integer "je_num"
     t.date "date"
-    t.string "memo", default: "hi"
-    t.integer "amount", default: 1
-    t.integer "quantity_change", default: 1
-    t.integer "cost_per_unit", default: 1
-    t.string "sku", default: "hi"
+    t.string "memo"
+    t.integer "amount"
+    t.integer "quantity_change"
+    t.integer "cost_per_unit"
+    t.string "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_transactions_on_account_id"
