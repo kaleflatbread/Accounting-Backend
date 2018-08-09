@@ -5,7 +5,6 @@ class CreateTransactions < ActiveRecord::Migration[5.2]
       t.string :transaction_type
       t.belongs_to :account
       t.belongs_to :user
-      t.integer :je_num
       t.date :date
       t.string :memo
       t.integer :amount

@@ -18,7 +18,7 @@ class Api::V1::TransactionsController < ApplicationController
   private
 
     def transaction_params
-      params.require(:transaction).permit(:account_id, :transaction_type, :user_id, :memo, :je_num, :date, :quantity_change, :amount, :cost_per_unit, :sku)
+      params.require(:transaction).permit(:account_id, :transaction_type, :user_id, :memo, :date, :quantity_change, :amount, :cost_per_unit, :sku)
     end
 
 end

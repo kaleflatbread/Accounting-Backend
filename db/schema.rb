@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2018_08_07_150504) do
     t.string "transaction_type"
     t.bigint "account_id"
     t.bigint "user_id"
-    t.integer "je_num"
     t.date "date"
     t.string "memo"
     t.integer "amount"
