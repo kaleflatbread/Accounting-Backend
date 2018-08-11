@@ -1,12 +1,14 @@
 class SessionsController < ApplicationController
 
   def create
-    @user = User.find_by(id: params["id"])
+    @user = User.find_by(email: params["email"])
 
     if (@user && @user.authenticate(params["password"]))
+    
+
+      token = JWT.encode payload, secret_key(), "HS256"
       render json: {
         email: @user.email,
-        first_name: @user.first_name
         id: @user.id,
         token: gen_token()
       }
@@ -17,8 +19,4 @@ class SessionsController < ApplicationController
     end
   end
 
-
-  def destroy
-    session.delete :id
-  end
 end

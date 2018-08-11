@@ -1,8 +1,22 @@
 class Api::V1::AccountsController < ApplicationController
-
+  before_action :authenticate, only: [:index, :create]
   def index
     accounts = Account.all
-    render json: accounts
+    token = request.headers['Authorization']
+    #
+    # begin
+    #   decoded_token = JWT.decode token, secret_key(), true
+    # rescue JWT::DecodeError => e
+    #   decoded_token = nil
+    # end
+    #
+    # if(!!decoded_token)
+      render json: accounts
+    # else
+    #   render json: {
+    #     message: 'Authorization failed.'
+    #   }, status: :unauthorized
+    # end
   end
 
   def create
