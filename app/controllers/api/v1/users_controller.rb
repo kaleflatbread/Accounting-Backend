@@ -42,7 +42,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def current_user
+  def currentuser
     @user = User.find_by(id: get_token_payload('sub'))
 
     if (!!@user)
