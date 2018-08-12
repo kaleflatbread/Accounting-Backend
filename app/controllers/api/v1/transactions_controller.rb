@@ -1,5 +1,4 @@
 class Api::V1::TransactionsController < ApplicationController
-
   before_action :authenticate, only: [:index, :create]
 
   def index

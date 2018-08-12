@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::API
   def secret_key
-    # "password"
-    # byebug
     ENV['SECRET_KEY']
   end
 
@@ -29,9 +27,9 @@ class ApplicationController < ActionController::API
     end
   end
 
-  def logged_in?
-    !!decoded_token
-  end
+  # def logged_in?
+  #   !!decoded_token
+  # end
 
   def authenticate
     # this works
@@ -43,7 +41,7 @@ class ApplicationController < ActionController::API
   #     }, status: :unauthorized
   #   end
   # end
-    if !logged_in?
+    if (!decoded_token)
       render json: {
         message: 'Authorization failed.'
       }, status: :unauthorized
