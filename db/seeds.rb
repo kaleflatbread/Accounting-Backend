@@ -15,14 +15,14 @@ jing = User.create({email: "test4@gmail.com", first_name: "Jing", last_name: "Bi
 dobby = User.create({email: "dobby@gmail.com", first_name: "Dobby", last_name: "Fitzgerald", role: "Cutest one in the office", password: "password"})
 
 
-one = Expense.create({account_id: revenue.id, transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 500})
-two = Expense.create({account_id: cash.id, transaction_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -500})
+one = Expense.create({account_id: revenue.id, child_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 500})
+two = Expense.create({account_id: cash.id, child_type: "Journal Entry", user_id: madison.id, memo: "July 2018 revenue", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -500})
 
-three = Inventory.create({account_id: finished_goods.id, transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: -20, amount: -20, cost_per_unit: 1, sku: "ABCD"})
-four = Expense.create({account_id: cogs.id, transaction_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -three.amount})
+three = Inventory.create({account_id: finished_goods.id, child_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: -20, amount: -20, cost_per_unit: 1, sku: "ABCD"})
+four = Expense.create({account_id: cogs.id, child_type: "Sale", user_id: kayla.id, memo: "July 2018 cost of goods sold", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -three.amount})
 
-five = Inventory.create({account_id: finished_goods.id, transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: 30, amount: 60, cost_per_unit: 2, sku: "EFGH"})
-six = Expense.create({account_id: cash.id, transaction_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -five.amount})
+five = Inventory.create({account_id: finished_goods.id, child_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", date: Date.strptime("7/31/2018", "%m/%d/%Y"), quantity_change: 30, amount: 60, cost_per_unit: 2, sku: "EFGH"})
+six = Expense.create({account_id: cash.id, child_type: "Purchase Order", user_id: jing.id, memo: "July 2018 inventory purchase", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -five.amount})
 
-seven = Expense.create({account_id: g_and_a.id, transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 100})
-eight = Expense.create({account_id: cash.id, transaction_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -100})
+seven = Expense.create({account_id: g_and_a.id, child_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: 100})
+eight = Expense.create({account_id: cash.id, child_type: "Journal Entry", user_id: vicki.id, memo: "July 2018 expense", date: Date.strptime("7/31/2018", "%m/%d/%Y"), amount: -100})

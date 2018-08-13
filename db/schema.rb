@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2018_08_07_150504) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "type", null: false
-    t.string "transaction_type"
+    t.string "type"
+    t.string "child_type"
     t.bigint "account_id"
     t.bigint "user_id"
     t.date "date"

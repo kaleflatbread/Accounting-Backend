@@ -21,7 +21,7 @@ class Api::V1::TransactionsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     transaction = Transaction.create(transaction_params)
     render json: transaction
   end
@@ -30,7 +30,7 @@ class Api::V1::TransactionsController < ApplicationController
   private
 
     def transaction_params
-      params.require(:transaction).permit(:account_id, :transaction_type, :user_id, :memo, :date, :quantity_change, :amount, :cost_per_unit, :sku)
+      params.require(:transaction).permit(:account_id, :child_type, :user_id, :memo, :date, :quantity_change, :amount, :cost_per_unit, :sku)
     end
 
 end

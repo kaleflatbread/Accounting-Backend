@@ -1,3 +1,3 @@
 class Transaction < ApplicationRecord
-  validates :account_id, :transaction_type, :user_id, :memo, :date, :amount, presence: true
+  validates :account_id, :child_type, :user_id, :memo, :date, :amount, presence: true
 end
