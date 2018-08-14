@@ -1,38 +1,25 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate, only: [:index, :create]
+  before_action :authenticate, only: [:index]
   def index
-    # token = request.headers['Authorization']
     users = User.all
-
-    # begin
-    #   decoded_token = JWT.decode token, secret_key(), true
-    # rescue JWT::DecodeError => e
-    #   decoded_token = nil
-    # end
-
-    # if(!!decoded_token)
-      render json: users
-    # else
-    #   render json: {
-    #     message: 'Authorization failed.'
-    #   }, status: :unauthorized
-    # end
-
+    render json: users
   end
 
   def create
     @user = User.new
 
-    @user.username = params[:email]
+    @user.email = params[:email]
     @user.password = params[:password]
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    @user.role = params[:role]
 
     if (@user.save)
-
-
-      token = JWT.encode payload, secret_key(), "HS256"
       render json: {
         email: @user.email,
-        id: @user.id,
+        first_name: @user.first_name,
+        last_name: @user.last_name,
+        role: @user.role,
         token: gen_token()
       }
     else
@@ -54,12 +41,8 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-
   private
-
     def user_params
       params.require(:user).permit(:email, :first_name, :last_name, :role, :password)
     end
-
-
 end

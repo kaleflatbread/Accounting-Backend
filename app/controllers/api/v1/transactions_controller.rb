@@ -3,25 +3,10 @@ class Api::V1::TransactionsController < ApplicationController
 
   def index
     transactions = Transaction.all
-    # token = request.headers['Authorization']
-    #
-    # begin
-    #   decoded_token = JWT.decode token, secret_key(), true
-    # rescue JWT::DecodeError => e
-    #   decoded_token = nil
-    # end
-    #
-    # if(!!decoded_token)
-      render json: transactions
-    # else
-    #   render json: {
-    #     message: 'Authorization failed.'
-    #   }, status: :unauthorized
-    # end
+    render json: transactions
   end
 
   def create
-    # byebug
     transaction = Transaction.create(transaction_params)
     render json: transaction
   end
